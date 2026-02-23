@@ -6,6 +6,8 @@ url: https://itdojp.github.io
 baseurl: /security-privacy-literacy-book
 repository: https://github.com/itdojp/security-privacy-literacy-book
 markdown: kramdown
+kramdown:
+  input: GFM
 highlighter: rouge
 plugins:
 - jekyll-feed
