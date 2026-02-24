@@ -1,0 +1,27 @@
+# Book-formatter compliant navigation structure
+
+chapters:
+  - title: "第1章：セキュリティ事故の典型と影響（なぜ守るのか）"
+    path: "/chapters/chapter-01/"
+  - title: "第2章：アカウント/端末/認証（MFA/パスワード/セッション）"
+    path: "/chapters/chapter-02/"
+  - title: "第3章：秘密情報管理（トークン/鍵/ログ/Issue貼り付け禁止）"
+    path: "/chapters/chapter-03/"
+  - title: "第4章：権限管理（最小権限/申請/監査ログ）"
+    path: "/chapters/chapter-04/"
+  - title: "第5章：データ分類と取り扱い（公開/社外秘/個人情報）"
+    path: "/chapters/chapter-05/"
+  - title: "第6章：誤公開・誤送信・設定ミスの典型パターンと防止策"
+    path: "/chapters/chapter-06/"
+  - title: "第7章：インシデント時の初動（証跡/報告/隔離）"
+    path: "/chapters/chapter-07/"
+  - title: "第8章：チェックリスト運用（レビュー観点/リリース前確認）"
+    path: "/chapters/chapter-08/"
+
+appendices:
+  - title: "テンプレ集"
+    path: "/appendices/templates/"
+  - title: "チェックリスト集"
+    path: "/appendices/checklists/"
+  - title: "参考文献"
+    path: "/appendices/references/"

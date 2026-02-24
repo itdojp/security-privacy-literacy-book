@@ -40,17 +40,21 @@
     ],
     "appendices": [
       {
-        "id": "checklists",
-        "title": "チェックリスト集"
-      },
-      {
         "id": "templates",
         "title": "テンプレ集"
+      },
+      {
+        "id": "checklists",
+        "title": "チェックリスト集"
       },
       {
         "id": "references",
         "title": "参考文献"
       }
     ]
+  },
+  "shared": {
+    "version": "3.2.2",
+    "lastSync": "2026-02-24T07:24:03.039Z"
   }
 }

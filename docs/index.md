@@ -33,6 +33,6 @@ order: 0
 
 ## 付録
 
-- [チェックリスト集](appendices/checklists/)
 - [テンプレ集](appendices/templates/)
+- [チェックリスト集](appendices/checklists/)
 - [参考文献](appendices/references/)
