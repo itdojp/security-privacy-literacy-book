@@ -19,10 +19,9 @@ chapters:
     path: "/chapters/chapter-08/"
 
 appendices:
-  - title: "チェックリスト集"
-    path: "/appendices/checklists/"
   - title: "テンプレ集"
     path: "/appendices/templates/"
+  - title: "チェックリスト集"
+    path: "/appendices/checklists/"
   - title: "参考文献"
     path: "/appendices/references/"
-

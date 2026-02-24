@@ -40,12 +40,12 @@
     ],
     "appendices": [
       {
-        "id": "checklists",
-        "title": "チェックリスト集"
-      },
-      {
         "id": "templates",
         "title": "テンプレ集"
+      },
+      {
+        "id": "checklists",
+        "title": "チェックリスト集"
       },
       {
         "id": "references",
