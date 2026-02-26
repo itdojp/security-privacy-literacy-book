@@ -29,4 +29,3 @@ order: 914
 - 証跡は、セキュリティレビュー観点テンプレの「証跡」列と対応付ける
 
 関連: [セキュリティレビュー観点テンプレ]({{ '/appendices/templates/security-review/' | relative_url }})
-

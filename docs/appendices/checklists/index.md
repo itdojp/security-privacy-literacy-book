@@ -20,7 +20,7 @@ order: 900
 - [ ] 証跡保全（ログ/設定/アクセス履歴を保全し、改変を避ける）
 - [ ] 報告/エスカレーション（所定の窓口/関係者へ連絡し、判断を集約する）
 
-関連: https://itdojp.github.io/incident-response-basics-book/
+関連: [incident-response-basics-book](https://itdojp.github.io/incident-response-basics-book/)
 
 ## ログ出力（禁止例/マスキング例）
 
