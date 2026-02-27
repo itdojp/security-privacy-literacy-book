@@ -24,9 +24,9 @@ order: 900
 
 ## ログ出力（禁止例/マスキング例）
 
-### 禁止例（そのまま出さない）
+### HTTPヘッダ（Authorization/Cookie）
 
-#### HTTPヘッダ（Authorization/Cookie）
+#### 禁止例（そのまま出さない）
 
 ```txt
 Authorization: Bearer <token>
@@ -35,9 +35,7 @@ password=plain-text
 email=user@example.com
 ```
 
-### 推奨例（マスキング/匿名化）
-
-#### HTTPヘッダ（Authorization/Cookie）
+#### 推奨例（マスキング/匿名化）
 
 ```txt
 Authorization: [REDACTED]
@@ -48,29 +46,29 @@ email=[REDACTED]
 
 - 調査に必要な識別子（例: `request-id`）は残し、秘密情報/個人情報は必ず伏字にする
 
-#### Query string（URLパラメータ）
+### Query string（URLパラメータ）
 
-##### 禁止例
+#### 禁止例（そのまま出さない）
 
 ```txt
 GET /reset-password?token=<token>&email=user@example.com
 ```
 
-##### 推奨例
+#### 推奨例（マスキング/匿名化）
 
 ```txt
-GET /reset-password?token=[REDACTED]&email=[REDACTED] request-id=<uuid>
+GET /reset-password?token=[REDACTED]&email=[REDACTED]  # request-id=<uuid>
 ```
 
-#### JSON payload
+### JSON payload
 
-##### 禁止例
+#### 禁止例（そのまま出さない）
 
 ```json
 {"email":"user@example.com","password":"plain-text","refresh_token":"<token>"}
 ```
 
-##### 推奨例
+#### 推奨例（マスキング/匿名化）
 
 ```json
 {"email":"[REDACTED]","password":"[REDACTED]","refresh_token":"[REDACTED]","request_id":"<uuid>"}

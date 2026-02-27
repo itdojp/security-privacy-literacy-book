@@ -53,7 +53,7 @@ order: 30
 Authorization: Bearer <token>
 Cookie: session=<session_id>
 GET /reset-password?token=<token>&email=user@example.com
-{"email":"user@example.com","password":"plain-text"}
+{"email":"user@example.com","password":"plain-text","refresh_token":"<token>"}
 ```
 
 #### 推奨例
@@ -61,8 +61,8 @@ GET /reset-password?token=<token>&email=user@example.com
 ```txt
 Authorization: [REDACTED]
 Cookie: [REDACTED]
-GET /reset-password?token=[REDACTED]&email=[REDACTED] request-id=<uuid>
-{"email":"[REDACTED]","password":"[REDACTED]","request_id":"<uuid>"}
+GET /reset-password?token=[REDACTED]&email=[REDACTED]  # request-id=<uuid>
+{"email":"[REDACTED]","password":"[REDACTED]","refresh_token":"[REDACTED]","request_id":"<uuid>"}
 ```
 
 ## IAM/権限で事故りやすい差分（例）

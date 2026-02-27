@@ -57,5 +57,5 @@ order: 70
 ## 次章への接続
 
 - 次章: [第8章](../chapter-08/)
-- 関連: インシデント運用の型（詳細）: [incident-response-basics-book](https://itdojp.github.io/incident-response-basics-book/)
-- 関連: 障害報告/ポストモーテムの書式: [engineering-documentation-book](https://itdojp.github.io/engineering-documentation-book/)
+- 関連: インシデント運用の型（詳細）: [インシデント対応 基礎](https://itdojp.github.io/incident-response-basics-book/)
+- 関連: 障害報告/ポストモーテムの書式: [エンジニアリングドキュメント 基礎](https://itdojp.github.io/engineering-documentation-book/)
