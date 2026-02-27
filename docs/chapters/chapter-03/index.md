@@ -28,6 +28,62 @@ order: 30
 - 共有: Issue/PR に貼らない（マスク/伏字）
 - 事故時: 失効/ローテーション/影響範囲の確認
 
+## ログマスキング（最低限）
+
+ログは「調査に必要な最小情報」と「追跡のための識別子」を残し、秘密情報/個人情報は必ず伏字にする。
+
+### 残す情報（調査に十分な情報）
+
+- request-id / trace-id / span-id（相関ID）
+- エンドポイント（パスのみ。query string は原則マスク）
+- ステータスコード、エラーコード、レイテンシ
+- 実行環境（prod/stg 等）、リリース版（version / commit hash）
+
+### 伏字にする情報（貼り付け禁止）
+
+- HTTPヘッダ: `Authorization`, `Cookie`, `Set-Cookie`
+- APIキー/アクセストークン/リフレッシュトークン/セッションID
+- 個人情報: メール、電話、住所、氏名、ユーザー識別子の紐付け情報
+
+### 禁止例→推奨例（抜粋）
+
+#### 禁止例
+
+```txt
+Authorization: Bearer <token>
+Cookie: session=<session_id>
+GET /reset-password?token=<token>&email=user@example.com
+{"email":"user@example.com","password":"plain-text","refresh_token":"<token>"}
+```
+
+#### 推奨例
+
+```txt
+Authorization: [REDACTED]
+Cookie: [REDACTED]
+GET /reset-password?token=[REDACTED]&email=[REDACTED]  # request-id=<uuid>
+{"email":"[REDACTED]","password":"[REDACTED]","refresh_token":"[REDACTED]","request_id":"<uuid>"}
+```
+
+## IAM/権限で事故りやすい差分（例）
+
+権限は「過剰に付与していないか」「期限があるか」「監査できるか」を中心に確認する。
+
+### ワイルドカード（`*`）の危険
+
+- **悪い例**: `Action: *` / `Resource: *` を恒常的に付与する
+- **良い例**: 必要な操作だけに絞る（最小権限）。例外が必要なら、期限付きで付与し、Issue/PR で理由と証跡を残す
+
+### 管理者権限の恒久付与の危険
+
+- **悪い例**: 管理者ロールを“恒久的に”付与したままにする
+- **良い例**: Breakglass（緊急用）を前提にし、平時は必要最小限 + 承認フロー + 証跡（監査ログ）で運用する
+
+### 期限付き権限の推奨
+
+- 可能なら短命トークン/OIDC/STS等を使い、「使い捨て・期限付き」に寄せる
+- 期限付きでも、監査ログ（誰が/いつ/何を）と棚卸し（定期確認）は必要
+
 ## 具体例（悪い例→良い例）
 
 ### 悪い例
