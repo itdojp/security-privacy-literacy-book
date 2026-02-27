@@ -20,24 +20,60 @@ order: 900
 - [ ] 証跡保全（ログ/設定/アクセス履歴を保全し、改変を避ける）
 - [ ] 報告/エスカレーション（所定の窓口/関係者へ連絡し、判断を集約する）
 
-関連: [incident-response-basics-book](https://itdojp.github.io/incident-response-basics-book/)
+関連: [インシデント対応 基礎](https://itdojp.github.io/incident-response-basics-book/)
 
 ## ログ出力（禁止例/マスキング例）
 
 ### 禁止例（そのまま出さない）
 
+#### HTTPヘッダ（Authorization/Cookie）
+
 ```txt
 Authorization: Bearer <token>
+Cookie: session=<session_id>
 password=plain-text
 email=user@example.com
 ```
 
 ### 推奨例（マスキング/匿名化）
 
+#### HTTPヘッダ（Authorization/Cookie）
+
 ```txt
 Authorization: [REDACTED]
+Cookie: [REDACTED]
 password=[REDACTED]
 email=[REDACTED]
+```
+
+- 調査に必要な識別子（例: `request-id`）は残し、秘密情報/個人情報は必ず伏字にする
+
+#### Query string（URLパラメータ）
+
+##### 禁止例
+
+```txt
+GET /reset-password?token=<token>&email=user@example.com
+```
+
+##### 推奨例
+
+```txt
+GET /reset-password?token=[REDACTED]&email=[REDACTED] request-id=<uuid>
+```
+
+#### JSON payload
+
+##### 禁止例
+
+```json
+{"email":"user@example.com","password":"plain-text","refresh_token":"<token>"}
+```
+
+##### 推奨例
+
+```json
+{"email":"[REDACTED]","password":"[REDACTED]","refresh_token":"[REDACTED]","request_id":"<uuid>"}
 ```
 
 - [ ] 秘密情報/個人情報がログに出ないことをテスト/レビューで確認した
