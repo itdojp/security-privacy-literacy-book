@@ -23,7 +23,7 @@ order: 30
 
 ### 最小の運用
 
-- 保管: Secret Manager 等に集約
+- 保管: Secret Manager などに集約
 - 出力: ログ/CI 出力に出さない
 - 共有: Issue/PR に貼らない（マスク/伏字）
 - 事故時: 失効/ローテーション/影響範囲の確認
@@ -37,7 +37,7 @@ order: 30
 - request-id / trace-id / span-id（相関ID）
 - エンドポイント（パスのみ。query string は原則マスク）
 - ステータスコード、エラーコード、レイテンシ
-- 実行環境（prod/stg 等）、リリース版（version / commit hash）
+- 実行環境（prod/stg など）、リリース版（version / commit hash）
 
 ### 伏字にする情報（貼り付け禁止）
 
