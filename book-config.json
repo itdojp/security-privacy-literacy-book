@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "metadata": {
     "genre": "技術書 / セキュリティ基礎",
-    "target_audience": [
+    "targetAudience": [
       "開発/運用に参加し始めた新人エンジニア",
       "業務委託/外部メンバーを含むチーム"
     ],
