@@ -3,6 +3,42 @@
   "description": "新人が最低限回避すべき事故（秘密情報/権限/データ分類/誤公開等）と、チェックリスト運用を扱う。",
   "author": "株式会社アイティードゥ",
   "version": "0.1.0",
+  "metadata": {
+    "genre": "技術書 / セキュリティ基礎",
+    "targetAudience": [
+      "開発/運用に参加し始めた新人エンジニア",
+      "業務委託/外部メンバーを含むチーム"
+    ],
+    "readerProfile": [
+      "Git/GitHub の基本用語は分かるが、セキュリティ運用の全体像はまだ曖昧",
+      "秘密情報/権限/データ分類/インシデント初動を短時間で把握したい"
+    ],
+    "learningOutcomes": [
+      "章立てに沿って、必要な成果物・判断基準をテンプレ/チェックリストとして再利用できる",
+      "レビュー観点と初動手順を共有できる"
+    ],
+    "keywords": [
+      "秘密情報",
+      "IAM",
+      "最小権限",
+      "データ分類",
+      "インシデント対応",
+      "チェックリスト"
+    ]
+  },
+  "ux": {
+    "profile": "B",
+    "modules": {
+      "quickStart": false,
+      "readingGuide": true,
+      "checklistPack": true,
+      "troubleshootingFlow": true,
+      "conceptMap": false,
+      "figureIndex": false,
+      "legalNotice": false,
+      "glossary": true
+    }
+  },
   "structure": {
     "chapters": [
       {
