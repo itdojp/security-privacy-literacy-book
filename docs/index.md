@@ -46,6 +46,6 @@ order: 0
 
 ## 利用と更新情報
 
-- ライセンス: CC BY-NC-SA 4.0（商用利用は別契約）
+- ライセンス: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja)（商用利用は CC ライセンスの範囲外であり、別途許諾が必要です）
 - リポジトリ: [itdojp/security-privacy-literacy-book](https://github.com/itdojp/security-privacy-literacy-book)
 - 更新差分を追う場合は、GitHub のコミット履歴と Pull Request を参照する
