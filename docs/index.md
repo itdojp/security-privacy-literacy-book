@@ -70,6 +70,7 @@ order: 0
 
 ## 利用と更新情報
 
-- ライセンス: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja)（商用利用は CC ライセンスの範囲外であり、別途許諾が必要です）
+- ライセンス: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja)（このライセンスでは商用利用は許諾されないため、商用利用が必要な場合は別途ライセンス契約が必要）
 - リポジトリ: [itdojp/security-privacy-literacy-book](https://github.com/itdojp/security-privacy-literacy-book)
-- 更新差分を追う場合は、GitHub のコミット履歴と Pull Request を参照する
+- 詳細なライセンス条件: [LICENSE.md](https://github.com/itdojp/security-privacy-literacy-book/blob/main/LICENSE.md)
+- 更新差分を追う場合は、GitHub の [コミット履歴](https://github.com/itdojp/security-privacy-literacy-book/commits/main/) と [PR 一覧](https://github.com/itdojp/security-privacy-literacy-book/pulls?q=is%3Apr) を参照する
