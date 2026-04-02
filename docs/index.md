@@ -70,7 +70,6 @@ order: 0
 
 ## 利用と更新情報
 
-
 - ライセンス: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja)（このライセンスでは商用利用は許諾されないため、商用利用が必要な場合は別途ライセンス契約が必要）
 - リポジトリ: [itdojp/security-privacy-literacy-book](https://github.com/itdojp/security-privacy-literacy-book)
 - 詳細なライセンス条件: [LICENSE.md](https://github.com/itdojp/security-privacy-literacy-book/blob/main/LICENSE.md)
