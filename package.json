@@ -6,10 +6,11 @@
   "scripts": {
     "start": "bash scripts/jekyll.sh serve",
     "build": "bash scripts/jekyll.sh build",
-    "test": "npm run lint && npm run check-links",
+    "test": "npm run check:metadata && npm run lint && npm run check-links",
     "lint": "markdownlint -c .markdownlint.json \"docs/**/*.md\"",
     "check-links": "find docs -name '*.md' -print0 | xargs -0 -n 1 markdown-link-check -c .markdown-link-check.json",
-    "deploy": "gh-pages -d _site"
+    "deploy": "gh-pages -d _site",
+    "check:metadata": "node scripts/check-metadata-consistency.js"
   },
   "license": "CC-BY-NC-SA-4.0",
   "devDependencies": {
@@ -19,6 +20,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/itdojp/security-privacy-literacy-book.git"
-  }
+    "url": "git+https://github.com/itdojp/security-privacy-literacy-book.git"
+  },
+  "author": "株式会社アイティードゥ",
+  "bugs": {
+    "url": "https://github.com/itdojp/security-privacy-literacy-book/issues"
+  },
+  "homepage": "https://itdojp.github.io/security-privacy-literacy-book/"
 }

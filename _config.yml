@@ -1,10 +1,13 @@
 title: セキュリティ＆プライバシー基礎リテラシー：秘密情報・権限・データ取り扱い
 description: 新人が最低限回避すべき事故（秘密情報/権限/データ分類/誤公開等）と、チェックリスト運用を扱う。
 author: 株式会社アイティードゥ
+version: 0.1.0
+license: CC-BY-NC-SA-4.0
 lang: ja
 url: https://itdojp.github.io
 baseurl: /security-privacy-literacy-book
 repository: https://github.com/itdojp/security-privacy-literacy-book
+homepage: https://itdojp.github.io/security-privacy-literacy-book/
 markdown: kramdown
 highlighter: rouge
 plugins:
