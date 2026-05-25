@@ -20,7 +20,7 @@
 ### 手順
 
 ```bash
-npm install
+npm ci
 
 # Ruby/Bundler が無い場合は Podman/Docker を利用します（初回は image pull + bundle install が走ります）
 
@@ -33,6 +33,20 @@ npm run build
 # テスト（markdown lint / link check）
 npm test
 ```
+
+### 品質ゲート
+
+`npm test` は、公開メタデータとナビゲーションの整合性チェックを含みます。
+
+```bash
+npm run check:metadata
+```
+
+このチェックは `book-config.json`、`package.json`、`package-lock.json`、
+Jekyll 設定、トップページ front matter、`docs/_data/navigation.yml`、
+設定済み公開ルート、必要なレイアウト・アセットを照合します。
+章・付録・テンプレートの公開パスを追加または変更した場合は、
+`book-config.json` と navigation を同じ PR で更新してください。
 
 ## ライセンス
 

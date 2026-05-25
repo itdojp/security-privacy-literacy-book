@@ -49,54 +49,108 @@
     "chapters": [
       {
         "id": "chapter-01",
-        "title": "第1章：セキュリティ事故の典型と影響（なぜ守るのか）"
+        "title": "第1章：セキュリティ事故の典型と影響（なぜ守るのか）",
+        "path": "/chapters/chapter-01/",
+        "description": "セキュリティ事故の典型例と事業影響を理解する"
       },
       {
         "id": "chapter-02",
-        "title": "第2章：アカウント/端末/認証（MFA/パスワード/セッション）"
+        "title": "第2章：アカウント/端末/認証（MFA/パスワード/セッション）",
+        "path": "/chapters/chapter-02/",
+        "description": "アカウント、端末、認証の基本的な防御策を整理する"
       },
       {
         "id": "chapter-03",
-        "title": "第3章：秘密情報管理（トークン/鍵/ログ/Issue貼り付け禁止）"
+        "title": "第3章：秘密情報管理（トークン/鍵/ログ/Issue貼り付け禁止）",
+        "path": "/chapters/chapter-03/",
+        "description": "秘密情報の保管、共有、貼り付け禁止の判断基準を学ぶ"
       },
       {
         "id": "chapter-04",
-        "title": "第4章：権限管理（最小権限/申請/監査ログ）"
+        "title": "第4章：権限管理（最小権限/申請/監査ログ）",
+        "path": "/chapters/chapter-04/",
+        "description": "最小権限、権限申請、監査ログの運用を理解する"
       },
       {
         "id": "chapter-05",
-        "title": "第5章：データ分類と取り扱い（公開/社外秘/個人情報）"
+        "title": "第5章：データ分類と取り扱い（公開/社外秘/個人情報）",
+        "path": "/chapters/chapter-05/",
+        "description": "公開情報、社外秘、個人情報、AI/外部サービス投入可否を分類する"
       },
       {
         "id": "chapter-06",
-        "title": "第6章：誤公開・誤送信・設定ミスの典型パターンと防止策"
+        "title": "第6章：誤公開・誤送信・設定ミスの典型パターンと防止策",
+        "path": "/chapters/chapter-06/",
+        "description": "誤公開、誤送信、設定ミスを防ぐレビュー観点を整理する"
       },
       {
         "id": "chapter-07",
-        "title": "第7章：インシデント時の初動（証跡/報告/隔離）"
+        "title": "第7章：インシデント時の初動（証跡/報告/隔離）",
+        "path": "/chapters/chapter-07/",
+        "description": "漏えい疑いの初動で証跡保全、報告、隔離を分けて判断する"
       },
       {
         "id": "chapter-08",
-        "title": "第8章：チェックリスト運用（レビュー観点/リリース前確認）"
+        "title": "第8章：チェックリスト運用（レビュー観点/リリース前確認）",
+        "path": "/chapters/chapter-08/",
+        "description": "チェックリストをレビューとリリース前確認に組み込む"
       }
     ],
     "appendices": [
       {
         "id": "templates",
-        "title": "テンプレ集"
+        "title": "テンプレ集",
+        "path": "/appendices/templates/",
+        "description": "アクセス申請、データ分類、セキュリティレビュー、脅威モデリングのテンプレート",
+        "items": [
+          {
+            "id": "access-request",
+            "title": "アクセス申請テンプレート",
+            "path": "/appendices/templates/access-request/",
+            "description": "権限申請時の目的、範囲、期限、承認を記録する"
+          },
+          {
+            "id": "data-classification",
+            "title": "データ分類テンプレート",
+            "path": "/appendices/templates/data-classification/",
+            "description": "情報分類と外部共有可否を記録する"
+          },
+          {
+            "id": "security-review",
+            "title": "セキュリティレビューテンプレート",
+            "path": "/appendices/templates/security-review/",
+            "description": "変更時のセキュリティレビュー観点を記録する"
+          },
+          {
+            "id": "threat-modeling",
+            "title": "脅威モデリングテンプレート",
+            "path": "/appendices/templates/threat-modeling/",
+            "description": "脅威、影響、対策、残余リスクを整理する"
+          }
+        ]
       },
       {
         "id": "checklists",
-        "title": "チェックリスト集"
+        "title": "チェックリスト集",
+        "path": "/appendices/checklists/",
+        "description": "秘密情報、権限、データ分類、インシデント初動のチェックリスト"
       },
       {
         "id": "references",
-        "title": "参考文献"
+        "title": "参考文献",
+        "path": "/appendices/references/",
+        "description": "OWASP、NIST、個人情報保護委員会等の一次情報"
       }
     ]
   },
   "shared": {
     "version": "3.2.2",
     "lastSync": "2026-02-24T07:24:03.039Z"
+  },
+  "license": "CC-BY-NC-SA-4.0",
+  "homepage": "https://itdojp.github.io/security-privacy-literacy-book/",
+  "repository": {
+    "url": "https://github.com/itdojp/security-privacy-literacy-book.git",
+    "branch": "main"
   }
 }
