@@ -81,21 +81,17 @@ function parseTopLevelYaml(file) {
 
 function parseFrontMatter(file) {
   const text = readText(file);
-  if (!text.startsWith('---\n')) {
-    fail(file, 'YAML front matter がありません');
+  const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+  if (!match) {
+    fail(file, 'YAML front matter がないか、終了マーカーがありません');
     return {};
   }
-  const end = text.indexOf('\n---', 4);
-  if (end === -1) {
-    fail(file, 'YAML front matter の終了マーカーがありません');
-    return {};
-  }
-  const front = text.slice(4, end);
+  const front = match[1];
   const result = {};
   for (const rawLine of front.split(/\r?\n/)) {
     if (!rawLine.trim() || rawLine.trim().startsWith('#')) continue;
-    const match = rawLine.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-    if (match) result[match[1]] = unquote(match[2]);
+    const fieldMatch = rawLine.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
+    if (fieldMatch) result[fieldMatch[1]] = unquote(fieldMatch[2]);
   }
   return result;
 }
