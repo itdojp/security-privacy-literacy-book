@@ -237,8 +237,15 @@ expectEqual('package.json', 'homepage', pkg.homepage, EXPECTED.homepage);
 if (!pkg.scripts || pkg.scripts['check:metadata'] !== 'node scripts/check-metadata-consistency.js') {
   fail('package.json', 'check:metadata スクリプトを設定してください');
 }
-if (!pkg.scripts || !String(pkg.scripts.test || '').includes('npm run check:metadata')) {
+if (!pkg.scripts || pkg.scripts['check:security'] !== 'npm audit --omit=optional') {
+  fail('package.json', 'check:security スクリプトを設定してください');
+}
+const testScript = String((pkg.scripts && pkg.scripts.test) || '');
+if (!testScript.includes('npm run check:metadata')) {
   fail('package.json', 'npm test に check:metadata を含めてください');
+}
+if (!testScript.includes('npm run check:security')) {
+  fail('package.json', 'npm test に check:security を含めてください');
 }
 
 const lock = readJson('package-lock.json') || {};
@@ -316,6 +323,13 @@ for (const asset of requiredAssets) {
   const full = path.join(ROOT, asset);
   if (!fs.existsSync(full) || fs.statSync(full).size === 0) {
     fail(asset, '公開サイトに必要なアセットまたはレイアウトがありません');
+  }
+}
+
+const readme = readText('README.md');
+for (const command of ['npm test', 'npm run check:metadata', 'npm run check:security']) {
+  if (!readme.includes(command)) {
+    fail('README.md', `${command} をローカル品質ゲートに記載してください`);
   }
 }
 

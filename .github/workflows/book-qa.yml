@@ -1,0 +1,82 @@
+name: Book QA (Security + Metadata + Book Formatter)
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout book
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Local quality gate
+        run: npm test
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: npm run build
+
+      - name: Checkout book-formatter (pinned)
+        uses: actions/checkout@v6
+        with:
+          repository: itdojp/book-formatter
+          ref: da2a49e7d2dcd9e1fa885e910c458130fe8d73a4
+          path: book-formatter
+
+      - name: Install book-formatter dependencies
+        working-directory: book-formatter
+        run: npm ci
+
+      - name: Unicode check
+        run: node book-formatter/scripts/check-unicode.js docs --fail-on warn
+
+      - name: Textlint
+        run: node book-formatter/scripts/check-textlint.js docs --fail-on error
+
+      - name: Internal link and anchor check
+        run: node book-formatter/scripts/check-links.js docs
+
+      - name: Layout risk scan
+        run: node book-formatter/scripts/check-layout-risk.js docs --fail-on error --output "${{ runner.temp }}/layout-risk-report.json"
+
+      - name: Markdown structure check
+        run: node book-formatter/scripts/check-markdown-structure.js docs --fail-on error --output "${{ runner.temp }}/markdown-structure-report.json"
+
+      - name: Upload layout risk report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: layout-risk-report
+          path: ${{ runner.temp }}/layout-risk-report.json
+          if-no-files-found: ignore
+
+      - name: Upload markdown structure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: markdown-structure-report
+          path: ${{ runner.temp }}/markdown-structure-report.json
+          if-no-files-found: ignore
