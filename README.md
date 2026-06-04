@@ -30,21 +30,23 @@ npm start
 # ビルド
 npm run build
 
-# テスト（markdown lint / link check）
+# テスト（metadata / security audit / markdown lint / link check）
 npm test
 ```
 
 ### 品質ゲート
 
-`npm test` は、公開メタデータとナビゲーションの整合性チェックを含みます。
+`npm test` は、公開メタデータとナビゲーションの整合性チェック、および npm dependency audit を含みます。
 
 ```bash
 npm run check:metadata
+npm run check:security
 ```
 
-このチェックは `book-config.json`、`package.json`、`package-lock.json`、
+`check:metadata` は `book-config.json`、`package.json`、`package-lock.json`、
 Jekyll 設定、トップページ front matter、`docs/_data/navigation.yml`、
 設定済み公開ルート、必要なレイアウト・アセットを照合します。
+`check:security` は `npm audit --omit=optional` を実行し、必須 dependency の既知脆弱性を CI で検出します。
 章・付録・テンプレートの公開パスを追加または変更した場合は、
 `book-config.json` と navigation を同じ PR で更新してください。
 
