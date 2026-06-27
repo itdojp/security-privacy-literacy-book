@@ -27,7 +27,7 @@ if command -v podman >/dev/null 2>&1; then
 elif command -v docker >/dev/null 2>&1; then
   engine="docker"
 else
-  echo "bundle が見つかりません。Ruby/Bundler を導入するか、podman/docker を導入してください。" >&2
+  echo "bundle が見つかりません。Ruby / Bundler を導入するか、podman / docker を導入してください。" >&2
   exit 1
 fi
 

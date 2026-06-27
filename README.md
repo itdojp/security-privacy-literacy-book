@@ -2,9 +2,9 @@
 
 ## 概要
 
-新人が最低限回避すべき事故（秘密情報/権限/データ分類/誤公開等）と、チェックリスト運用を扱う。
+新人が最低限回避すべき事故（秘密情報 / 権限 / データ分類 / 誤公開等）と、チェックリスト運用を扱う。
 
-## オンライン版（公開URL）
+## オンライン版（公開 URL）
 
 - GitHub Pages: `https://itdojp.github.io/security-privacy-literacy-book/`
 - 入口: `docs/index.md`
@@ -22,7 +22,7 @@
 ```bash
 npm ci
 
-# Ruby/Bundler が無い場合は Podman/Docker を利用します（初回は image pull + bundle install が走ります）
+# Ruby / Bundler が無い場合は Podman / Docker を利用します（初回は image pull + bundle install が走ります）
 
 # プレビュー
 npm start
