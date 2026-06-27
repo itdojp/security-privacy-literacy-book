@@ -2,7 +2,7 @@
   "name": "security-privacy-literacy-book",
   "version": "0.1.0",
   "private": true,
-  "description": "新人が最低限回避すべき事故（秘密情報/権限/データ分類/誤公開等）と、チェックリスト運用を扱う。",
+  "description": "新人が最低限回避すべき事故（秘密情報 / 権限 / データ分類 / 誤公開等）と、チェックリスト運用を扱う。",
   "scripts": {
     "start": "bash scripts/jekyll.sh serve",
     "build": "bash scripts/jekyll.sh build",
@@ -27,5 +27,14 @@
   "bugs": {
     "url": "https://github.com/itdojp/security-privacy-literacy-book/issues"
   },
-  "homepage": "https://itdojp.github.io/security-privacy-literacy-book/"
+  "homepage": "https://itdojp.github.io/security-privacy-literacy-book/",
+  "engines": {
+    "node": ">=20.18.1"
+  },
+  "overrides": {
+    "js-yaml": "4.3.0",
+    "markdown-it": "14.2.0",
+    "linkify-it": "5.0.1",
+    "undici": "7.28.0"
+  }
 }

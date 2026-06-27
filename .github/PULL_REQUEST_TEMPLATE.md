@@ -17,9 +17,9 @@
 
 - [ ] GitHub Copilot review を依頼した
 - [ ] review 本文を確認した
-- [ ] inline comment / suggestion を全件確認した
+- [ ] `inline comment` / `suggestion` を全件確認した
 - [ ] 必要な修正または対応不要理由を返信した
-- [ ] 未解決 review thread が 0 件であることを確認した
+- [ ] 未解決 `review thread` が 0 件であることを確認した
 
 ## セキュリティ・プライバシー確認
 
