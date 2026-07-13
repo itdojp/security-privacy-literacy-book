@@ -82,10 +82,13 @@ function walkMarkdown(dir) {
 }
 
 let config = {};
-try {
-  config = JSON.parse(read('book-config.json'));
-} catch (error) {
-  errors.push('book-config.json: invalid JSON (' + error.message + ')');
+const configText = read('book-config.json');
+if (configText) {
+  try {
+    config = JSON.parse(configText);
+  } catch (error) {
+    errors.push('book-config.json: invalid JSON (' + error.message + ')');
+  }
 }
 expect(config.ux && config.ux.profile === 'B', 'book-config.json: ux.profile must be B');
 for (const key of Object.keys(expectedModules)) {
@@ -160,7 +163,9 @@ for (const figure of figures) {
     expect(svg.includes('<desc id="' + ids[1] + '">'), svgPath + ': labelled desc is missing');
   }
   const svgWithoutNamespace = svg.replace('http://www.w3.org/2000/svg', '');
-  expect(!/<script\b|<foreignObject\b|<image\b|\son[a-z]+\s*=|(?:https?:)?\/\//i.test(svgWithoutNamespace),
+  const nonFragmentHref = /\s(?:href|xlink:href)\s*=\s*(["'])(?!#)[^"']*\1/i.test(svgWithoutNamespace);
+  expect(!/<script\b|<foreignObject\b|<image\b|\son[a-z]+\s*=|(?:https?:)?\/\//i.test(svgWithoutNamespace) &&
+    !nonFragmentHref,
     svgPath + ': scripts, external resources, event handlers and embedded images are forbidden');
   expect(!/Bearer\s+|api[_ -]?key\s*[:=]|password\s*[:=]|token\s*[:=]/i.test(svg),
     svgPath + ': secret-like example values are forbidden');
@@ -179,10 +184,13 @@ expect(JSON.stringify(actualAssets) === JSON.stringify(expectedAssets),
 expect(JSON.stringify(actualRefs.slice().sort()) === JSON.stringify(expectedAssets), 'figure references must match exact asset inventory');
 
 let pkg = {};
-try {
-  pkg = JSON.parse(read('package.json'));
-} catch (error) {
-  errors.push('package.json: invalid JSON (' + error.message + ')');
+const packageText = read('package.json');
+if (packageText) {
+  try {
+    pkg = JSON.parse(packageText);
+  } catch (error) {
+    errors.push('package.json: invalid JSON (' + error.message + ')');
+  }
 }
 expect(pkg.scripts && pkg.scripts['check:reader-ux'] === 'node scripts/check-reader-ux.js',
   'package.json: check:reader-ux script is missing');
