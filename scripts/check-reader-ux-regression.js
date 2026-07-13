@@ -22,6 +22,7 @@ const cases = [
   ['missing figure asset', 'docs/assets/images/figures/ch03-secret-handling.svg', function () { return null; }],
   ['extra figure asset', 'docs/assets/images/figures/extra.svg', function () { return '<svg xmlns="http://www.w3.org/2000/svg"></svg>'; }],
   ['missing SVG accessibility', 'docs/assets/images/figures/ch03-secret-handling.svg', function (text) { return text.replace('role="img"', 'role="presentation"'); }],
+  ['misnamed root SVG label attribute', 'docs/assets/images/figures/ch03-secret-handling.svg', function (text) { return text.replace('aria-labelledby=', 'data-aria-labelledby='); }],
   ['secret-like SVG content', 'docs/assets/images/figures/ch03-secret-handling.svg', function (text) { return text.replace('</svg>', '<text>Bearer example-value</text></svg>'); }],
   ['broken mobile rule', 'docs/assets/css/mobile-responsive.css', function (text) { return text.replace('.figure-index-list li,\n  .figure-text-alternative {', '.figure-index-list li,\n  .broken-alternative {'); }],
   ['broken sidebar renderer', 'docs/_includes/sidebar-nav.html', function (text) { return text.replaceAll('navigation.appendices', 'navigation.resources_only'); }],

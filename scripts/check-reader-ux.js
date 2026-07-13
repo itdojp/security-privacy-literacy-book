@@ -60,6 +60,13 @@ function count(text, needle) {
   return text.split(needle).length - 1;
 }
 
+function openingTagAttribute(markup, tagName, attributeName) {
+  const openingTag = markup.match(new RegExp('<' + tagName + '\\b[^>]*>', 'i'));
+  if (!openingTag) return null;
+  const attribute = openingTag[0].match(new RegExp('(?:^|\\s)' + attributeName + '="([^"]*)"'));
+  return attribute ? attribute[1] : null;
+}
+
 function walkMarkdown(dir) {
   const full = path.join(ROOT, dir);
   if (!fs.existsSync(full)) return [];
@@ -129,7 +136,7 @@ for (const figure of figures) {
   const source = read(figure.source);
   expect(count(source, 'id="' + figure.anchor + '"') === 1, figure.source + ': missing stable anchor ' + figure.anchor);
   expect(count(source, '/assets/images/figures/' + figure.asset) === 1, figure.source + ': missing one asset reference ' + figure.asset);
-  const blockPattern = new RegExp('<figure[^>]+id="' + figure.anchor + '"[\\s\\S]*?<\\/figure>\\s*<p class="figure-text-alternative">[^<]{30,}<\\/p>');
+  const blockPattern = new RegExp('<figure\\b[^>]*\\sid="' + figure.anchor + '"[^>]*>[\\s\\S]*?<\\/figure>\\s*<p class="figure-text-alternative">[^<]{30,}<\\/p>');
   const blockMatch = source.match(blockPattern);
   expect(Boolean(blockMatch), figure.source + ': figure, caption and immediate text alternative are required for ' + figure.anchor);
   if (blockMatch) {
@@ -141,10 +148,11 @@ for (const figure of figures) {
 
   const svgPath = 'docs/assets/images/figures/' + figure.asset;
   const svg = read(svgPath);
-  expect(/<svg[^>]+role="img"[^>]+aria-labelledby="([^"]+)"/.test(svg), svgPath + ': role=img and aria-labelledby are required');
-  const labelled = svg.match(/aria-labelledby="([^"]+)"/);
-  if (labelled) {
-    const ids = labelled[1].trim().split(/\s+/);
+  const role = openingTagAttribute(svg, 'svg', 'role');
+  const labelled = openingTagAttribute(svg, 'svg', 'aria-labelledby');
+  expect(role === 'img' && labelled !== null, svgPath + ': root svg role=img and aria-labelledby are required');
+  if (labelled !== null) {
+    const ids = labelled.trim().split(/\s+/);
     expect(ids.length === 2, svgPath + ': aria-labelledby must reference title and desc');
     expect(svg.includes('<title id="' + ids[0] + '">'), svgPath + ': labelled title is missing');
     expect(svg.includes('<desc id="' + ids[1] + '">'), svgPath + ': labelled desc is missing');
