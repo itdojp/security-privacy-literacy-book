@@ -6,7 +6,7 @@ const path = require('path');
 const childProcess = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
-const SCRATCH_ROOT = path.join(ROOT, '.codex-local', 'tmp');
+const SCRATCH_ROOT = path.join(ROOT, 'node_modules', '.cache', 'reader-ux-regression');
 fs.mkdirSync(SCRATCH_ROOT, { recursive: true });
 const RUN_ROOT = fs.mkdtempSync(path.join(SCRATCH_ROOT, 'reader-ux-regression-run-'));
 
