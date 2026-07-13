@@ -50,7 +50,7 @@ Jekyll 設定、トップページ front matter、`docs/_data/navigation.yml`、
 設定済み公開ルート、必要なレイアウト・アセットを照合します。
 `check:security` は `npm audit --omit=optional` を実行し、必須 dependency の既知脆弱性を CI で検出します。
 `check:reader-ux` は、公開図表4件、stable anchor、文章代替、図表索引、reader navigation の一対一対応とSVGの安全性を検証します。
-`check:reader-ux-regression` は、必須要素を壊したfixtureをcheckerが制御された失敗として拒否することを検証します。
+`check:reader-ux-regression` は、必須要素を壊したfixtureを制御された失敗として拒否し、標準名前空間付きの内部SVG fragmentを受理することを検証します。
 章・付録・テンプレートの公開パスを追加または変更した場合は、
 `book-config.json` と navigation を同じ PR で更新してください。
 
