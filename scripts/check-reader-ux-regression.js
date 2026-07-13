@@ -16,19 +16,20 @@ function disableFigureIndex(text) {
   return JSON.stringify(config, null, 2) + '\n';
 }
 
-function removePositiveReaderUXGate(text) {
+function removeReaderUXGate(text, gate) {
   const pkg = JSON.parse(text);
   pkg.scripts.test = String(pkg.scripts.test || '').split('&&').map(function (command) {
     return command.trim();
   }).filter(function (command) {
-    return command !== 'npm run check:reader-ux';
+    return command !== gate;
   }).join(' && ');
   return JSON.stringify(pkg, null, 2) + '\n';
 }
 
 const cases = [
   ['disabled module flag', 'book-config.json', disableFigureIndex],
-  ['missing positive reader UX gate', 'package.json', removePositiveReaderUXGate],
+  ['missing positive reader UX gate', 'package.json', function (text) { return removeReaderUXGate(text, 'npm run check:reader-ux'); }],
+  ['missing reader UX regression gate', 'package.json', function (text) { return removeReaderUXGate(text, 'npm run check:reader-ux-regression'); }],
   ['missing route source', 'docs/appendices/figure-index/index.md', function () { return null; }],
   ['missing navigation route', 'docs/_data/navigation.yml', function (text) { return text.replace(/^\s*-\s*title:\s*["']図表索引["']\s*\r?\n\s*path:\s*["']\/appendices\/figure-index\/["']\s*\r?\n/m, ''); }],
   ['missing top route', 'docs/index.md', function (text) { return text.replace(/^\s*-\s*判断フローを図から探す場合は\s*\[図表索引\]\(appendices\/figure-index\/\)\s*を使う\s*\r?\n/m, ''); }],
