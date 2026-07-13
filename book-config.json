@@ -40,7 +40,7 @@
       "checklistPack": true,
       "troubleshootingFlow": true,
       "conceptMap": false,
-      "figureIndex": false,
+      "figureIndex": true,
       "legalNotice": false,
       "glossary": true
     }
@@ -140,6 +140,12 @@
         "title": "参考文献",
         "path": "/appendices/references/",
         "description": "OWASP、NIST、個人情報保護委員会等の一次情報"
+      },
+      {
+        "id": "figure-index",
+        "title": "図表索引",
+        "path": "/appendices/figure-index/",
+        "description": "認証、秘密情報、データ分類、インシデント初動の判断図"
       }
     ]
   },

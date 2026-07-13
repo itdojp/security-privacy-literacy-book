@@ -52,6 +52,13 @@ order: 50
 
 AI 出力を採用する場合も、入力した情報の分類、出力に秘密情報・個人情報が含まれないこと、出力を実行してよい根拠を記録する。
 
+<figure class="book-figure" id="figure-ch05-external-sharing-decision">
+  <img src="../../assets/images/figures/ch05-external-sharing-decision.svg" alt="情報を分類し、公開情報は規約確認、社外秘は承認、秘密情報は投入禁止、個人情報は窓口判断へ分ける外部共有フロー" loading="lazy">
+  <figcaption>図5-1: AIや外部サービスへ渡す前に、情報分類ごとの停止・承認条件を確認する。</figcaption>
+</figure>
+
+<p class="figure-text-alternative">図の要点: まず情報を分類し、秘密情報は投入しない。社外秘と個人情報は現場だけで可否を決めず、契約、目的、最小化、保存・削除条件を所定の窓口と確認する。</p>
+
 ## 実務レビューゲート: プライバシーと外部共有
 
 個人情報・要配慮個人情報等の機微度の高い情報は、技術的なマスキングだけでなく、目的、契約、委託、保存場所、削除、報告 / 通知判断まで含めて扱う。

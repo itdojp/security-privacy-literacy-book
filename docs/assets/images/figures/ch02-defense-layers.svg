@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title-ch02-defense-layers desc-ch02-defense-layers">
+  <title id="title-ch02-defense-layers">アカウント・認証・端末・セッションの防御層</title>
+  <desc id="desc-ch02-defense-layers">個人アカウント、フィッシング耐性の高いMFA、更新・ロックされた管理端末、セッション失効と監査ログの四層を重ね、紛失や退職時は復旧・失効手順へ接続する。</desc>
+  <defs>
+    <marker id="arrow-ch02-defense-layers" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="960" height="560" fill="#ffffff"/>
+  <text x="40" y="40" fill="#0f172a" font-family="sans-serif" font-size="26" font-weight="700">アカウント・認証・端末・セッションの防御層</text>
+  <g font-family="sans-serif">
+    <rect x="70" y="90" width="620" height="82" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="100" y="125" fill="#1e3a8a" font-size="19" font-weight="700">1. 個人アカウント</text>
+    <text x="100" y="151" fill="#0f172a" font-size="16">共有禁止・本人性・操作追跡</text>
+
+    <rect x="110" y="185" width="580" height="82" rx="14" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+    <text x="140" y="220" fill="#312e81" font-size="19" font-weight="700">2. 強い認証</text>
+    <text x="140" y="246" fill="#0f172a" font-size="16">MFA・passkey・安全なリセット</text>
+
+    <rect x="150" y="280" width="540" height="82" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+    <text x="180" y="315" fill="#14532d" font-size="19" font-weight="700">3. 管理端末</text>
+    <text x="180" y="341" fill="#0f172a" font-size="16">更新・画面ロック・紛失連絡</text>
+
+    <rect x="190" y="375" width="500" height="82" rx="14" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
+    <text x="220" y="410" fill="#713f12" font-size="19" font-weight="700">4. セッションと追跡</text>
+    <text x="220" y="436" fill="#0f172a" font-size="16">失効・ログアウト・監査ログ</text>
+
+    <rect x="755" y="175" width="165" height="210" rx="14" fill="#fff1f2" stroke="#e11d48" stroke-width="2"/>
+    <text x="838" y="215" text-anchor="middle" fill="#881337" font-size="19" font-weight="700">例外時</text>
+    <text x="838" y="255" text-anchor="middle" fill="#0f172a" font-size="16">端末紛失</text>
+    <text x="838" y="285" text-anchor="middle" fill="#0f172a" font-size="16">異動・退職</text>
+    <text x="838" y="315" text-anchor="middle" fill="#0f172a" font-size="16">漏えい疑い</text>
+    <text x="838" y="355" text-anchor="middle" fill="#881337" font-size="16" font-weight="700">復旧・失効手順へ</text>
+  </g>
+  <g fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow-ch02-defense-layers)">
+    <path d="M690 130 C735 130 735 205 755 225"/>
+    <path d="M690 416 C735 416 735 350 755 335"/>
+  </g>
+  <text x="40" y="515" fill="#475569" font-family="sans-serif" font-size="16">MFAだけで完結させず、端末・復旧・失効・監査を重ねて一つの運用にする。</text>
+</svg>
