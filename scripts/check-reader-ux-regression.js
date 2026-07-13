@@ -8,6 +8,7 @@ const childProcess = require('child_process');
 const ROOT = path.resolve(__dirname, '..');
 const SCRATCH_ROOT = path.join(ROOT, '.codex-local', 'tmp');
 fs.mkdirSync(SCRATCH_ROOT, { recursive: true });
+const RUN_ROOT = fs.mkdtempSync(path.join(SCRATCH_ROOT, 'reader-ux-regression-run-'));
 
 const cases = [
   ['missing module flag', 'book-config.json', function (text) { return text.replace('"figureIndex": true', '"figureIndex": false'); }],
@@ -28,7 +29,7 @@ const cases = [
 ];
 
 function createFixture() {
-  const fixture = fs.mkdtempSync(path.join(SCRATCH_ROOT, 'reader-ux-regression-'));
+  const fixture = fs.mkdtempSync(path.join(RUN_ROOT, 'case-'));
   fs.copyFileSync(path.join(ROOT, 'book-config.json'), path.join(fixture, 'book-config.json'));
   fs.copyFileSync(path.join(ROOT, 'package.json'), path.join(fixture, 'package.json'));
   fs.cpSync(path.join(ROOT, 'docs'), path.join(fixture, 'docs'), { recursive: true });
@@ -44,8 +45,14 @@ for (const testCase of cases) {
   try {
     const target = path.join(fixture, relative);
     fs.mkdirSync(path.dirname(target), { recursive: true });
-    const original = fs.existsSync(target) ? fs.readFileSync(target, 'utf8') : '';
+    const targetExisted = fs.existsSync(target);
+    const original = targetExisted ? fs.readFileSync(target, 'utf8') : '';
     const changed = mutate(original);
+    if ((changed === null && !targetExisted) || (changed !== null && changed === original)) {
+      console.error('Negative regression fixture was not mutated: ' + name);
+      process.exitCode = 1;
+      break;
+    }
     if (changed === null) fs.rmSync(target);
     else fs.writeFileSync(target, changed);
 
@@ -70,6 +77,15 @@ for (const testCase of cases) {
     passed += 1;
   } finally {
     fs.rmSync(fixture, { recursive: true, force: true });
+  }
+}
+
+fs.rmSync(RUN_ROOT, { recursive: true, force: true });
+for (const directory of [SCRATCH_ROOT, path.dirname(SCRATCH_ROOT)]) {
+  try {
+    fs.rmdirSync(directory);
+  } catch (error) {
+    if (error.code !== 'ENOENT' && error.code !== 'ENOTEMPTY') throw error;
   }
 }
 
