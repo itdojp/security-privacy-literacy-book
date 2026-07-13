@@ -10,11 +10,28 @@ const SCRATCH_ROOT = path.join(ROOT, 'node_modules', '.cache', 'reader-ux-regres
 fs.mkdirSync(SCRATCH_ROOT, { recursive: true });
 const RUN_ROOT = fs.mkdtempSync(path.join(SCRATCH_ROOT, 'reader-ux-regression-run-'));
 
+function disableFigureIndex(text) {
+  const config = JSON.parse(text);
+  config.ux.modules.figureIndex = false;
+  return JSON.stringify(config, null, 2) + '\n';
+}
+
+function removePositiveReaderUXGate(text) {
+  const pkg = JSON.parse(text);
+  pkg.scripts.test = String(pkg.scripts.test || '').split('&&').map(function (command) {
+    return command.trim();
+  }).filter(function (command) {
+    return command !== 'npm run check:reader-ux';
+  }).join(' && ');
+  return JSON.stringify(pkg, null, 2) + '\n';
+}
+
 const cases = [
-  ['missing module flag', 'book-config.json', function (text) { return text.replace('"figureIndex": true', '"figureIndex": false'); }],
+  ['disabled module flag', 'book-config.json', disableFigureIndex],
+  ['missing positive reader UX gate', 'package.json', removePositiveReaderUXGate],
   ['missing route source', 'docs/appendices/figure-index/index.md', function () { return null; }],
-  ['missing navigation route', 'docs/_data/navigation.yml', function (text) { return text.replace(/  - title: "図表索引"\r?\n    path: "\/appendices\/figure-index\/"\r?\n/, ''); }],
-  ['missing top route', 'docs/index.md', function (text) { return text.replace('- 判断フローを図から探す場合は [図表索引](appendices/figure-index/) を使う\n', ''); }],
+  ['missing navigation route', 'docs/_data/navigation.yml', function (text) { return text.replace(/^\s*-\s*title:\s*["']図表索引["']\s*\r?\n\s*path:\s*["']\/appendices\/figure-index\/["']\s*\r?\n/m, ''); }],
+  ['missing top route', 'docs/index.md', function (text) { return text.replace(/^\s*-\s*判断フローを図から探す場合は\s*\[図表索引\]\(appendices\/figure-index\/\)\s*を使う\s*\r?\n/m, ''); }],
   ['missing figure reference', 'docs/chapters/chapter-03/index.md', function (text) { return text.replace('/assets/images/figures/ch03-secret-handling.svg', '/assets/images/ch03-secret-handling.svg'); }],
   ['missing stable anchor', 'docs/chapters/chapter-03/index.md', function (text) { return text.replace('id="figure-ch03-secret-handling"', 'id="secret-handling"'); }],
   ['missing text alternative', 'docs/chapters/chapter-03/index.md', function (text) { return text.replace('class="figure-text-alternative"', 'class="alternative"'); }],
@@ -23,8 +40,9 @@ const cases = [
   ['extra figure asset', 'docs/assets/images/figures/extra.svg', function () { return '<svg xmlns="http://www.w3.org/2000/svg"></svg>'; }],
   ['missing SVG accessibility', 'docs/assets/images/figures/ch03-secret-handling.svg', function (text) { return text.replace('role="img"', 'role="presentation"'); }],
   ['misnamed root SVG label attribute', 'docs/assets/images/figures/ch03-secret-handling.svg', function (text) { return text.replace('aria-labelledby=', 'data-aria-labelledby='); }],
+  ['protocol-relative SVG resource', 'docs/assets/images/figures/ch03-secret-handling.svg', function (text) { return text.replace('</svg>', '<a href="//example.invalid/figure"><text>external</text></a></svg>'); }],
   ['secret-like SVG content', 'docs/assets/images/figures/ch03-secret-handling.svg', function (text) { return text.replace('</svg>', '<text>Bearer example-value</text></svg>'); }],
-  ['broken mobile rule', 'docs/assets/css/mobile-responsive.css', function (text) { return text.replace('.figure-index-list li,\n  .figure-text-alternative {', '.figure-index-list li,\n  .broken-alternative {'); }],
+  ['broken mobile rule', 'docs/assets/css/mobile-responsive.css', function (text) { return text.replace(/\.figure-index-list\s+li,\s*\r?\n\s*\.figure-text-alternative\s*\{/, '.figure-index-list li,\n  .broken-alternative {'); }],
   ['broken sidebar renderer', 'docs/_includes/sidebar-nav.html', function (text) { return text.replaceAll('navigation.appendices', 'navigation.resources_only'); }],
   ['broken prev-next renderer', 'docs/_includes/page-navigation.html', function (text) { return text.replace('additional,resources,appendices,afterword', 'additional,resources,afterword'); }]
 ];
