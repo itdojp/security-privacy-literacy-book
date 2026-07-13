@@ -74,6 +74,11 @@ for (const testCase of cases) {
       process.exitCode = 1;
       break;
     }
+    if (!String(result.stderr || '').includes('Reader UX check failed:')) {
+      console.error('Negative regression did not produce a controlled checker failure: ' + name);
+      process.exitCode = 1;
+      break;
+    }
     passed += 1;
   } finally {
     fs.rmSync(fixture, { recursive: true, force: true });
