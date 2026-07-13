@@ -28,6 +28,13 @@ order: 20
 - セッション: 端末共有禁止、ログアウト / 失効の理解
 - 端末: OS / ブラウザ更新、画面ロック、紛失時の連絡手順
 
+<figure class="book-figure" id="figure-ch02-defense-layers">
+  <img src="../../assets/images/figures/ch02-defense-layers.svg" alt="個人アカウント、フィッシング耐性の高いMFA、管理端末、セッション失効と監査ログを重ねた防御層" loading="lazy">
+  <figcaption>図2-1: アカウント・認証・端末・セッションを一つの防御層として運用する。</figcaption>
+</figure>
+
+<p class="figure-text-alternative">図の要点: 共有アカウントを避け、MFAだけに依存せず、端末更新、復旧経路、セッション失効、監査ログまでを連続した統制として確認する。</p>
+
 ## 実務レビューゲート: 認証とセッション
 
 認証まわりの詳細設計は専門書に委ねるが、基礎リテラシーとして次の判断は PR や研修資料に残す。

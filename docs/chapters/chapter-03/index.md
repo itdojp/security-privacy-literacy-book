@@ -28,6 +28,13 @@ order: 30
 - 共有: Issue / PR に貼らない（マスク / 伏字）
 - 事故時: 失効 / ローテーション / 影響範囲の確認
 
+<figure class="book-figure" id="figure-ch03-secret-handling">
+  <img src="../../assets/images/figures/ch03-secret-handling.svg" alt="秘密情報を棚卸しして専用保管し、ログ・Issue・AIへの露出を防ぎ、疑い時は失効とローテーションを行う流れ" loading="lazy">
+  <figcaption>図3-1: 秘密情報の保管・利用・露出防止・事故対応を一つのライフサイクルで管理する。</figcaption>
+</figure>
+
+<p class="figure-text-alternative">図の要点: 秘密情報は専用基盤で短命化し、出力や外部共有を防ぐ。露出が疑われた時点で値を再掲せず、失効・再発行と影響範囲確認へ進む。</p>
+
 ## 実務レビューゲート: 秘密情報とログ
 
 秘密情報の事故は、コード、Issue、PR、CI、チャット、AI / 外部サービスのどこからでも発生し得る。変更前に次を確認する。

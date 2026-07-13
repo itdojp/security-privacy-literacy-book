@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title-ch05-external-sharing-decision desc-ch05-external-sharing-decision">
+  <title id="title-ch05-external-sharing-decision">AI・外部サービス共有の判断</title>
+  <desc id="desc-ch05-external-sharing-decision">共有前に情報を分類し、公開情報は利用規約と正確性を確認、社外秘は承認・契約・保存削除条件を確認、秘密情報は投入禁止、個人情報は最小化して法務やプライバシー窓口へ判断を求める。</desc>
+  <defs>
+    <marker id="arrow-ch05-external-sharing-decision" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="960" height="600" fill="#ffffff"/>
+  <text x="40" y="40" fill="#0f172a" font-family="sans-serif" font-size="26" font-weight="700">AI・外部サービス共有の判断</text>
+  <rect x="340" y="75" width="280" height="70" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="480" y="105" text-anchor="middle" fill="#0f172a" font-family="sans-serif" font-size="18">共有前に情報を分類</text>
+  <text x="480" y="130" text-anchor="middle" fill="#475569" font-family="sans-serif" font-size="15">迷う場合は厳しい側へ</text>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="35" y="245" width="205" height="210" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+    <text x="137" y="282" fill="#14532d" font-size="20" font-weight="700">公開情報</text>
+    <text x="137" y="330" fill="#0f172a" font-size="16">利用規約</text>
+    <text x="137" y="358" fill="#0f172a" font-size="16">出力の正確性</text>
+    <text x="137" y="405" fill="#166534" font-size="17" font-weight="700">確認後に利用可</text>
+
+    <rect x="265" y="245" width="205" height="210" rx="14" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
+    <text x="367" y="282" fill="#713f12" font-size="20" font-weight="700">社外秘</text>
+    <text x="367" y="325" fill="#0f172a" font-size="16">組織承認・契約</text>
+    <text x="367" y="353" fill="#0f172a" font-size="16">保存・学習利用</text>
+    <text x="367" y="381" fill="#0f172a" font-size="16">削除条件</text>
+    <text x="367" y="420" fill="#854d0e" font-size="17" font-weight="700">条件未確認なら停止</text>
+
+    <rect x="495" y="245" width="205" height="210" rx="14" fill="#fff1f2" stroke="#e11d48" stroke-width="2"/>
+    <text x="597" y="282" fill="#881337" font-size="20" font-weight="700">秘密情報</text>
+    <text x="597" y="335" fill="#0f172a" font-size="16">伏字の断片も</text>
+    <text x="597" y="363" fill="#0f172a" font-size="16">復元可能性を確認</text>
+    <text x="597" y="415" fill="#9f1239" font-size="19" font-weight="700">投入禁止</text>
+
+    <rect x="725" y="245" width="205" height="210" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="827" y="282" fill="#4c1d95" font-size="20" font-weight="700">個人情報</text>
+    <text x="827" y="325" fill="#0f172a" font-size="16">目的・最小化</text>
+    <text x="827" y="353" fill="#0f172a" font-size="16">契約・保持・削除</text>
+    <text x="827" y="381" fill="#0f172a" font-size="16">再識別リスク</text>
+    <text x="827" y="420" fill="#5b21b6" font-size="17" font-weight="700">所定窓口が判断</text>
+  </g>
+  <g fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow-ch05-external-sharing-decision)">
+    <path d="M480 145 V190 H137 V245"/>
+    <path d="M480 145 V190 H367 V245"/>
+    <path d="M480 145 V245"/>
+    <path d="M480 145 V190 H827 V245"/>
+  </g>
+  <g fill="#475569" font-family="sans-serif" font-size="14">
+    <text x="112" y="220">公開</text>
+    <text x="340" y="220">社外秘</text>
+    <text x="510" y="220">秘密情報</text>
+    <text x="800" y="220">個人情報等</text>
+  </g>
+  <rect x="190" y="500" width="580" height="55" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+  <text x="480" y="534" text-anchor="middle" fill="#334155" font-family="sans-serif" font-size="17">分類・承認・根拠・保存削除条件を記録してから共有する</text>
+</svg>

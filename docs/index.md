@@ -61,6 +61,7 @@ permalink: /
 - 個人情報や AI / 外部サービス投入可否で迷ったら [第5章](chapters/chapter-05/)
 - 事故発生時の初動が曖昧なら [第7章](chapters/chapter-07/)
 - 実運用の確認観点は [チェックリスト集](appendices/checklists/) を使う
+- 判断フローを図から探す場合は [図表索引](appendices/figure-index/) を使う
 
 ## 所要時間（目安）
 
@@ -85,6 +86,7 @@ permalink: /
 - [テンプレ集](appendices/templates/)
 - [チェックリスト集](appendices/checklists/)
 - [参考文献](appendices/references/)
+- [図表索引](appendices/figure-index/)
 
 ## 利用と更新情報
 

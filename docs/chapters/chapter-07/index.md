@@ -24,6 +24,13 @@ order: 70
 
 隔離の例: 公開停止、権限剥奪、トークン失効。原則は証跡（ログ / 設定）を先に確保するが、被害拡大が進行している場合は最小操作で隔離を先行し、証跡保全は並行して行う。
 
+<figure class="book-figure" id="figure-ch07-incident-first-response">
+  <img src="../../assets/images/figures/ch07-incident-first-response.svg" alt="漏えい疑いを検知後、被害継続時は最小隔離と証跡保全を並行し、報告、影響範囲、通知判断へ進む初動フロー" loading="lazy">
+  <figcaption>図7-1: 漏えい疑いの初動。被害継続の有無で隔離と証跡保全の順序を調整する。</figcaption>
+</figure>
+
+<p class="figure-text-alternative">図の要点: 原則は証跡保全から始める。被害が継続している場合だけ最小隔離を先行・並行し、その後は報告、影響範囲、法務・プライバシー窓口による通知判断を分けて記録する。</p>
+
 ## 漏えい疑いの初動で分ける判断
 
 秘密情報と個人情報では、初動の優先順位と関係者が異なる。どちらも「問題なし」と即断せず、判断を分けて記録する。

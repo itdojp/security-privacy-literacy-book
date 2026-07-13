@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title-ch07-incident-first-response desc-ch07-incident-first-response">
+  <title id="title-ch07-incident-first-response">漏えい疑いの初動</title>
+  <desc id="desc-ch07-incident-first-response">漏えい疑いを検知したら被害継続を判断する。継続中なら最小隔離と証跡保全を並行し、停止済みなら証跡保全を先行する。その後に報告、情報分類と影響範囲、法務やプライバシー窓口による通知判断へ進む。</desc>
+  <defs>
+    <marker id="arrow-ch07-incident-first-response" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="960" height="600" fill="#ffffff"/>
+  <text x="40" y="40" fill="#0f172a" font-family="sans-serif" font-size="26" font-weight="700">漏えい疑いの初動</text>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="40" y="190" width="150" height="75" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="115" y="220" fill="#0f172a" font-size="17">漏えい疑いを</text>
+    <text x="115" y="245" fill="#0f172a" font-size="17">検知</text>
+
+    <polygon points="305,165 410,227 305,289 200,227" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+    <text x="305" y="220" fill="#0f172a" font-size="17">被害は</text>
+    <text x="305" y="245" fill="#0f172a" font-size="17">継続中か</text>
+
+    <rect x="455" y="95" width="200" height="100" rx="12" fill="#fff1f2" stroke="#e11d48" stroke-width="2"/>
+    <text x="555" y="128" fill="#881337" font-size="17" font-weight="700">最小隔離</text>
+    <text x="555" y="154" fill="#0f172a" font-size="16">公開停止・権限剥奪</text>
+    <text x="555" y="178" fill="#0f172a" font-size="16">証跡保全を並行</text>
+
+    <rect x="455" y="265" width="200" height="90" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+    <text x="555" y="300" fill="#14532d" font-size="17" font-weight="700">証跡保全を先行</text>
+    <text x="555" y="328" fill="#0f172a" font-size="16">ログ・設定・共有履歴</text>
+
+    <rect x="710" y="190" width="180" height="75" rx="12" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+    <text x="800" y="220" fill="#0f172a" font-size="17">所定経路へ報告</text>
+    <text x="800" y="245" fill="#0f172a" font-size="16">担当・時刻を記録</text>
+
+    <rect x="235" y="420" width="220" height="95" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+    <text x="345" y="453" fill="#0f172a" font-size="17" font-weight="700">分類・影響範囲</text>
+    <text x="345" y="480" fill="#0f172a" font-size="16">対象・期間・公開範囲</text>
+    <text x="345" y="502" fill="#0f172a" font-size="16">二次被害の可能性</text>
+
+    <rect x="540" y="420" width="280" height="95" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="680" y="453" fill="#4c1d95" font-size="17" font-weight="700">報告・通知判断</text>
+    <text x="680" y="480" fill="#0f172a" font-size="16">法務 / プライバシー窓口</text>
+    <text x="680" y="502" fill="#0f172a" font-size="16">最新規程・契約で期限確認</text>
+  </g>
+  <g fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow-ch07-incident-first-response)">
+    <path d="M190 227 H200"/>
+    <path d="M305 165 V145 H455"/>
+    <path d="M410 227 H430 V310 H455"/>
+    <path d="M655 145 H685 V227 H710"/>
+    <path d="M655 310 H685 V227 H710"/>
+    <path d="M800 265 V375 H345 V420"/>
+    <path d="M455 468 H540"/>
+  </g>
+  <g fill="#475569" font-family="sans-serif" font-size="15">
+    <text x="350" y="135">はい</text>
+    <text x="422" y="247">いいえ</text>
+  </g>
+  <text x="40" y="565" fill="#475569" font-family="sans-serif" font-size="16">被害継続時だけ最小隔離を先行し、通知要否と期限は現場で固定せず所定窓口へ渡す。</text>
+</svg>
