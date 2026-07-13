@@ -30,7 +30,7 @@ npm start
 # ビルド
 npm run build
 
-# テスト（metadata / security audit / reader UX / markdown lint / link check）
+# テスト（metadata / security audit / reader UX + regression / markdown lint / link check）
 npm test
 ```
 
