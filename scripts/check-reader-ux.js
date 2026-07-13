@@ -52,6 +52,22 @@ function read(file) {
   }
 }
 
+function readJsonObject(file) {
+  const text = read(file);
+  if (!text) return {};
+  try {
+    const value = JSON.parse(text);
+    if (!value || typeof value !== 'object' || Array.isArray(value)) {
+      errors.push(file + ': must contain a JSON object');
+      return {};
+    }
+    return value;
+  } catch (error) {
+    errors.push(file + ': invalid JSON (' + error.message + ')');
+    return {};
+  }
+}
+
 function expect(condition, message) {
   if (!condition) errors.push(message);
 }
@@ -93,15 +109,7 @@ function walkMarkdown(dir) {
   return result;
 }
 
-let config = {};
-const configText = read('book-config.json');
-if (configText) {
-  try {
-    config = JSON.parse(configText);
-  } catch (error) {
-    errors.push('book-config.json: invalid JSON (' + error.message + ')');
-  }
-}
+const config = readJsonObject('book-config.json');
 expect(config.ux && config.ux.profile === 'B', 'book-config.json: ux.profile must be B');
 for (const key of Object.keys(expectedModules)) {
   expect(config.ux && config.ux.modules && config.ux.modules[key] === expectedModules[key],
@@ -175,7 +183,7 @@ for (const figure of figures) {
     expect(svg.includes('<desc id="' + ids[1] + '">'), svgPath + ': labelled desc is missing');
   }
   const svgWithoutNamespace = svg.replace('http://www.w3.org/2000/svg', '');
-  const nonFragmentHref = /\s(?:href|xlink:href)\s*=\s*(["'])(?!#)[^"']*\1/i.test(svgWithoutNamespace);
+  const nonFragmentHref = /\s(?:href|xlink:href)\s*=\s*(?:"(?!#)[^"]*"|'(?!#)[^']*')/i.test(svgWithoutNamespace);
   expect(!/<script\b|<foreignObject\b|<image\b|\son[a-z]+\s*=|@import\b|(?:https?:)?\/\//i.test(svgWithoutNamespace) &&
     !nonFragmentHref && !hasNonFragmentCssUrl(svgWithoutNamespace),
     svgPath + ': scripts, external resources, event handlers and embedded images are forbidden');
@@ -195,15 +203,7 @@ expect(JSON.stringify(actualAssets) === JSON.stringify(expectedAssets),
   'figure assets must match exact inventory; expected ' + JSON.stringify(expectedAssets) + ', got ' + JSON.stringify(actualAssets));
 expect(JSON.stringify(actualRefs.slice().sort()) === JSON.stringify(expectedAssets), 'figure references must match exact asset inventory');
 
-let pkg = {};
-const packageText = read('package.json');
-if (packageText) {
-  try {
-    pkg = JSON.parse(packageText);
-  } catch (error) {
-    errors.push('package.json: invalid JSON (' + error.message + ')');
-  }
-}
+const pkg = readJsonObject('package.json');
 expect(pkg.scripts && pkg.scripts['check:reader-ux'] === 'node scripts/check-reader-ux.js',
   'package.json: check:reader-ux script is missing');
 expect(pkg.scripts && pkg.scripts['check:reader-ux-regression'] === 'node scripts/check-reader-ux-regression.js',
