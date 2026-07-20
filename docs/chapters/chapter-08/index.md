@@ -36,15 +36,15 @@ order: 80
 |残リスク|今回残すリスク、別 Issue に分離した項目|
 |公開 / 共有後確認|公開 URL、共有リンク権限、main checks、削除 / 失効確認|
 
-これは `issue-driven-work-book` の PR 完了ゲートと、`engineering-documentation-book` の監査メモに接続する。セキュリティ判断は、本文変更の有無にかかわらず追跡可能にする。
+これは [チケット駆動の仕事術：良いIssueとPRで回すタスク管理・報告・合意形成](https://itdojp.github.io/issue-driven-work-book/) の PR 完了ゲートと、[エンジニアリングドキュメント実践ガイド：README・手順書・Runbook・ADR・ポストモーテム](https://itdojp.github.io/engineering-documentation-book/) の監査メモに接続する。セキュリティ判断は、本文変更の有無にかかわらず追跡可能にする。
 
 ## Phase 4 専門書との整合チェック
 
 セキュリティ・認証認可系の専門書と矛盾しないよう、基礎書側では次の境界を明確にする。
 
-- 認証認可の実装詳細は `practical-auth-book` に委ね、本書では MFA、共有アカウント禁止、セッション失効、Cookie 属性レビューの入口に絞る。
-- インフラやクラウドの詳細設定は `it-infra-security-guide-book` に委ね、本書では責務分界、ログ、権限、公開範囲の確認観点に絞る。
-- ペネトレーションテストの手順詳細は `pentest-learning-book` に委ね、本書では明示許可、スコープ、停止条件、証跡保管、秘密情報取得禁止の原則に絞る。
+- 認証認可の実装詳細は [実践 認証認可システム設計](https://itdojp.github.io/practical-auth-book/) に委ね、本書では MFA、共有アカウント禁止、セッション失効、Cookie 属性レビューの入口に絞る。
+- インフラやクラウドの詳細設定は [インフラエンジニアのための情報セキュリティ実装ガイド](https://itdojp.github.io/it-infra-security-guide-book/) に委ね、本書では責務分界、ログ、権限、公開範囲の確認観点に絞る。
+- ペネトレーションテストの手順詳細は [実務で使えるペネトレーションテスト大全](https://itdojp.github.io/pentest-learning-book/) に委ね、本書では明示許可、スコープ、停止条件、証跡保管、秘密情報取得禁止の原則に絞る。
 - 内容を更新する PR では、`Copilot review` 本文・`inline comment`・`suggestion` の確認結果と未解決 `review thread` 0 件を PR body に残す。
 
 ## 具体例（悪い例→良い例）

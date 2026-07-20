@@ -9,7 +9,7 @@ order: 900
 ## Phase 4 横断レビュー
 
 - [ ] OWASP / NIST / 個人情報保護委員会 / MITRE などの時点依存参照は、確認日と版を PR body または Issue に記録した
-- [ ] OAuth / OIDC / JWT / Cookie / CSRF / CORS の実装判断は、基礎説明にとどめ、必要に応じて `practical-auth-book` のレビューゲートへ接続した
+- [ ] OAuth / OIDC / JWT / Cookie / CSRF / CORS の実装判断は、基礎説明にとどめ、必要に応じて [実践 認証認可システム設計](https://itdojp.github.io/practical-auth-book/) のレビューゲートへ接続した
 - [ ] `SameSite=None` を使う場合は、クロスサイト利用が必要な理由と `Secure` の併用を確認した
 - [ ] ペネトレーションテストや脆弱性検証に関する記述は、明示許可、スコープ、停止条件、証跡保管、防御・教育目的の範囲を確認した
 - [ ] `GitHub Copilot review` の本文、`inline comment`、`suggestion` を全件確認し、未解決 `review thread` 0 件を確認した

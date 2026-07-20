@@ -43,7 +43,7 @@ order: 20
 - **復旧経路**: MFA リセット、端末紛失、アカウント復旧の手順は、本人確認、承認者、証跡、期限付き例外を含めて定義する。
 - **セッション Cookie**: Web セッションを扱う場合は `Secure`、`HttpOnly`、`SameSite` の指定を確認する。`SameSite=None` はクロスサイト利用が必要な場合に限定し、必ず `Secure` と組み合わせる。
 - **ログアウトと失効**: 退職、異動、端末紛失、漏えい疑いでは、パスワード変更だけでなくセッション、リフレッシュトークン、APIキー、共有リンクの失効を確認する。
-- **参照元**: NIST SP 800-63-4、OWASP Session Management Cheat Sheet、`practical-auth-book` の認証認可レビューゲートを確認日付きで参照する。
+- **参照元**: NIST SP 800-63-4、OWASP Session Management Cheat Sheet、[実践 認証認可システム設計](https://itdojp.github.io/practical-auth-book/) の認証認可レビューゲートを確認日付きで参照する。
 
 ## 具体例（悪い例→良い例）
 
